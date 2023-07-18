@@ -9,7 +9,7 @@ SELECT DISTINCT * FROM animals WHERE neutered = true;
 SELECT DISTINCT * FROM animals WHERE name <> 'Gabumon';
 SELECT DISTINCT * FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
 
-
+ALTER TABLE animals ADD species varchar(50);
 BEGIN;
 
 UPDATE animals SET species = 'unspecified';
