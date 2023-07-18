@@ -64,13 +64,6 @@ This is a project for creating a database to store vet clinic data for animals.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-coming soon....
-
-- [Live Demo Link](<replace-with-your-deployment-URL>)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -207,6 +200,9 @@ I would like to thank microverse community for the support in accomplishing this
 <!-- LICENSE -->
 
 ## 📝 License <a name="license"></a>
+
+
+This project is [MIT](https://github.com/AleWaweru/vet-clinic-database/blob/update-records/MIT.md) licensed.
 
 _NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
