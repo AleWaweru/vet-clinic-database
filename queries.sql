@@ -26,8 +26,6 @@ WHERE species IS NULL;
 
 COMMIT;
 
-ROLLBACK;
-
 BEGIN;
 
 DELETE FROM animals;
@@ -41,16 +39,6 @@ DELETE FROM animals WHERE date_of_birth > '2022-01-01';
 
 SAVEPOINT my_savepoint;
 
-ROLLBACK TO SAVEPOINT my_savepoint;
-
-COMMIT;
-
-ROLLBACK;
-
-BEGIN;
-
-SAVEPOINT my_savepoint;
-
 UPDATE animals SET weight_kg = weight_kg * -1;
 
 ROLLBACK TO SAVEPOINT my_savepoint;
@@ -58,6 +46,7 @@ ROLLBACK TO SAVEPOINT my_savepoint;
 UPDATE animals SET weight_kg = weight_kg * -1;
 
 COMMIT;
+
 
 SELECT COUNT(*) AS animal_count FROM animals;
 
@@ -82,6 +71,19 @@ SELECT species, AVG(escape_attempts) AS average_escape_attempts
 FROM animals
 WHERE EXTRACT(YEAR FROM date_of_birth) BETWEEN 1990 AND 2000
 GROUP BY species;
+
+SELECT * FROM animals;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
