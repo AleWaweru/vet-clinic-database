@@ -111,7 +111,6 @@ GROUP BY o.full_name
 ORDER BY COUNT(*) DESC
 LIMIT 1;
 
-SELECT * FROM animals;
 
 
 
