@@ -72,7 +72,7 @@ FROM animals
 WHERE EXTRACT(YEAR FROM date_of_birth) BETWEEN 1990 AND 2000
 GROUP BY species;
 
-
+-- ADD ANIMAL QUERIES
 SELECT a.name AS animal_name
 FROM animals a
 JOIN owners o ON a.owner_id = o.id
@@ -111,7 +111,71 @@ GROUP BY o.full_name
 ORDER BY COUNT(*) DESC
 LIMIT 1;
 
-SELECT * FROM animals;
+SELECT a.name AS animal_name
+FROM animals a
+JOIN visits v ON a.id = v.animals_id
+JOIN vets vt ON v.vet_id = vt.id
+WHERE vt.name = 'William Tatcher'
+ORDER BY v.visit_date DESC
+LIMIT 1;
+
+
+SELECT COUNT(DISTINCT v.animals_id) AS num_animals_seen
+FROM visits v
+JOIN vets vt ON v.vet_id = vt.id
+WHERE vt.name = 'Stephanie Mendez';
+
+SELECT vt.name AS vet_name, s.name AS specialty_name
+FROM vets vt
+LEFT JOIN specializations sp ON vt.id = sp.vet_id
+LEFT JOIN species s ON sp.species_id = s.id;
+
+SELECT a.name AS animal_name
+FROM animals a
+JOIN visits v ON a.id = v.animals_id
+JOIN vets vt ON v.vet_id = vt.id
+WHERE vt.name = 'Stephanie Mendez'
+AND v.visit_date BETWEEN '2020-04-01' AND '2020-08-30';
+
+SELECT a.name AS animal_name, COUNT(*) AS num_visits
+FROM animals a
+JOIN visits v ON a.id = v.animals_id
+GROUP BY a.name
+ORDER BY num_visits DESC
+LIMIT 1;
+
+SELECT a.name AS animal_name, MIN(v.visit_date) AS first_visit_date
+FROM animals a
+JOIN visits v ON a.id = v.animals_id
+JOIN vets vt ON v.vet_id = vt.id
+WHERE vt.name = 'Maisy Smith'
+GROUP BY a.name;
+
+SELECT a.name AS animal_name, vt.name AS vet_name, v.visit_date AS visit_date
+FROM animals a
+JOIN visits v ON a.id = v.animals_id
+JOIN vets vt ON v.vet_id = vt.id
+ORDER BY v.visit_date DESC
+LIMIT 1;
+
+SELECT COUNT(*) AS num_visits
+FROM visits v
+JOIN animals a ON v.animals_id = a.id
+JOIN vets vt ON v.vet_id = vt.id
+LEFT JOIN specializations sp ON vt.id = sp.vet_id AND a.species_id = sp.species_id
+WHERE sp.vet_id IS NULL;
+
+
+SELECT s.name AS suggested_specialty
+FROM animals a
+JOIN species s ON a.species_id = s.id
+WHERE a.owner_id = (
+    SELECT id FROM owners WHERE full_name = 'Maisy Smith' LIMIT 1
+)
+GROUP BY s.name
+ORDER BY COUNT(*) DESC
+LIMIT 1;
+
 
 
 
