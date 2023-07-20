@@ -20,6 +20,9 @@ CREATE TABLE species (
     name VARCHAR(255)
 );
 
+ALTER TABLE animals DROP CONSTRAINT IF EXISTS pk_animals;
+ALTER TABLE animals
+ADD COLUMN id SERIAL PRIMARY KEY;
 
 ALTER TABLE animals
 DROP COLUMN species;
