@@ -72,7 +72,7 @@ FROM animals
 WHERE EXTRACT(YEAR FROM date_of_birth) BETWEEN 1990 AND 2000
 GROUP BY species;
 
--- ADD ANIMAL QUERIES
+-- ADD JOIN ANIMAL/VET QUERIES
 SELECT a.name AS animal_name
 FROM animals a
 JOIN owners o ON a.owner_id = o.id
