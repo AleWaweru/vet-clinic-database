@@ -62,7 +62,6 @@ visit_date DATE
 
 CREATE INDEX indx_visits_id ON visits (animals_id);
 
-CREATE INDEX indx_visits_id ON visits (vet_id);
 
 CREATE INDEX idx_owners_email ON owners (email);
 
