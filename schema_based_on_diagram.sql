@@ -56,4 +56,11 @@ CREATE TABLE visits (
 );
 
 -- Create indexes for foreign keys
+CREATE INDEX idx_animals_species_id ON animals (species_id);
+CREATE INDEX idx_animals_owner_id ON animals (owner_id);
+CREATE INDEX idx_specializations_vet_id ON specializations (vet_id);
+CREATE INDEX idx_specializations_species_id ON specializations (species_id);
+CREATE INDEX idx_visits_vet_id ON visits (vet_id);
+CREATE INDEX idx_visits_animal_id ON visits (animal_id);
+CREATE INDEX idx_owners_email ON owners (email);
 
